@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<body>
-    <p>Dear <span th:text="${userName}"></span>,</p>
-    <p>Welcome to our service! Your order number is <strong th:text="${orderId}"></strong>.</p>
-    <p>Thank you!</p>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body style="font-family:Arial, sans-serif; padding:20px;">
+<div style="border:1px solid #ddd; padding:20px; border-radius:10px;">
+    <h2 style="color:#2e6da4;">Hello, <span th:text="${userName}">User</span>!</h2>
+    <p style="font-size:16px;">
+        Welcome to our service! Your order number is <strong th:text="${orderId}"></strong>.
+    </p>
+    <p style="font-size:16px;">
+        Your OTP is: <span style="color:green; font-weight:bold;" th:text="${otp}">000000</span>
+    </p>
+    <p>Thank you for using our service!</p>
+</div>
 </body>
 </html>

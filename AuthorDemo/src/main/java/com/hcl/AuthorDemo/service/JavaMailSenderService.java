@@ -35,6 +35,7 @@ public class JavaMailSenderService {
 		Context context = new Context();
 		context.setVariable("userName", "shiva1729");
 		context.setVariable("orderId", "B98H48IC2G8&BD");
+		context.setVariable("otp", "172901");
 		String htmlContent = springTemplateEngine.process("email_temp", context);// preparing the HTML content with dynamic data
 
 		MimeMessage message = javaMailSender.createMimeMessage();
@@ -42,7 +43,7 @@ public class JavaMailSenderService {
 		helper.setFrom("shivasaivardhan1729@gmail.com");
 		helper.setTo(toEmail);
 		helper.setSubject(subject);
-		helper.setText(htmlContent);
+		helper.setText(htmlContent,true);
 		javaMailSender.send(message);
 	}
 	

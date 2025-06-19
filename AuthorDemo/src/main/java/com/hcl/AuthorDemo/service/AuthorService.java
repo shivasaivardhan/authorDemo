@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hcl.AuthorDemo.dao.AuthorDao;
@@ -15,10 +16,10 @@ import ch.qos.logback.core.joran.util.beans.BeanUtil;
 import lombok.AllArgsConstructor;
 
 @Service
-@AllArgsConstructor
 public class AuthorService {
 
-	private final AuthorDao authorDao;
+	@Autowired
+	private AuthorDao authorDao;
 
 	public void saveAuthor(AuthorDto authorDto) {
 		Author author = new Author();
