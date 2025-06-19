@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hcl.AuthorDemo.service.JavaMailSenderService;
 
+import jakarta.mail.MessagingException;
+
 @Controller
 @RequestMapping("/email")
 public class EmailController {
@@ -26,6 +28,13 @@ public class EmailController {
 	@GetMapping("/send")
 	public String sendEmail(Model model) {
 		mailSenderService.sendEmail("shivasaivardhan127@gmail.com", "Demo mail", "hello world");
+		model.addAttribute("message", "Email sent successfully!");
+		return "emailResult"; // This should map to emailResult.jsp
+	}
+	
+	@GetMapping("/sendHtml")
+	public String sendEmailHtml(Model model) throws MessagingException {
+		mailSenderService.sendEmailHtml("shivasaivardhan127@gmail.com", "Demo HTML mail");
 		model.addAttribute("message", "Email sent successfully!");
 		return "emailResult"; // This should map to emailResult.jsp
 	}
