@@ -34,7 +34,7 @@ public class EmailController {
 	
 	@GetMapping("/sendHtml")
 	public String sendEmailHtml(Model model) throws MessagingException {
-		mailSenderService.sendEmailHtml("shivasaivardhan127@gmail.com", "Demo HTML mail");
+		mailSenderService.sendEmailHtml("shivasaivardhan127@gmail.com", "Demo HTML mail",0);
 		model.addAttribute("message", "Email sent successfully!");
 		return "emailResult"; // This should map to emailResult.jsp
 	}
